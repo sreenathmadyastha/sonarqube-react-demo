@@ -197,3 +197,73 @@ The exact syntax depends on your CI setup. For example, in a GitHub Actions work
   with:
   args: >
   -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+
+Output
+
+`npm run test`
+
+> sonarqube-react-demo@1.0.0 test
+> vitest run && vitest run --coverage
+
+RUN v4.0.18 C:/Users/srina/sonarqube-react-demo
+
+✓ src/**tests**/validators.test.ts (12 tests) 8ms
+✓ src/**tests**/calculator.test.ts (14 tests) 7ms
+✓ src/**tests**/formatters.test.ts (12 tests) 99ms
+✓ src/**tests**/Counter.test.tsx (8 tests) 440ms
+✓ src/**tests**/TodoList.test.tsx (8 tests) 1445ms
+✓ adds a todo item 358ms
+✓ src/**tests**/LoginForm.test.tsx (6 tests) 2852ms
+✓ shows error for invalid email 504ms
+✓ shows error for weak password 500ms
+✓ calls onSubmit with valid credentials 569ms
+✓ does not call onSubmit with invalid form data 308ms
+✓ clears errors on valid resubmission 867ms
+
+Test Files 6 passed (6)
+Tests 60 passed (60)
+Start at 11:31:42
+Duration 27.24s (transform 940ms, setup 22.21s, import 9.64s, tests 4.85s, environment 100.95s)
+
+RUN v4.0.18 C:/Users/srina/sonarqube-react-demo
+Coverage enabled with v8
+
+✓ src/**tests**/formatters.test.ts (12 tests) 28ms
+✓ src/**tests**/validators.test.ts (12 tests) 9ms
+✓ src/**tests**/calculator.test.ts (14 tests) 9ms
+✓ src/**tests**/Counter.test.tsx (8 tests) 556ms
+✓ src/**tests**/TodoList.test.tsx (8 tests) 1610ms
+✓ adds a todo item 373ms
+✓ src/**tests**/LoginForm.test.tsx (6 tests) 2886ms
+✓ shows error for invalid email 494ms
+✓ shows error for weak password 462ms
+✓ calls onSubmit with valid credentials 602ms
+✓ does not call onSubmit with invalid form data 332ms
+✓ clears errors on valid resubmission 886ms
+
+Test Files 6 passed (6)
+Tests 60 passed (60)
+Start at 11:32:11
+Duration 4.93s (transform 238ms, setup 1.14s, import 1.09s, tests 5.10s, environment 5.99s)
+
+% Coverage report from v8
+----------------|---------|----------|---------|---------|-------------------
+File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+----------------|---------|----------|---------|---------|-------------------
+All files | 96.66 | 97.67 | 95 | 96.34 |  
+ src | 0 | 100 | 0 | 0 |  
+ App.tsx | 0 | 100 | 0 | 0 | 6-10  
+ src/components | 100 | 95 | 100 | 100 |  
+ Counter.tsx | 100 | 100 | 100 | 100 |  
+ LoginForm.tsx | 100 | 100 | 100 | 100 |  
+ TodoList.tsx | 100 | 87.5 | 100 | 100 | 27  
+ src/utils | 100 | 100 | 100 | 100 |  
+ calculator.ts | 100 | 100 | 100 | 100 |  
+ formatters.ts | 100 | 100 | 100 | 100 |  
+ validators.ts | 100 | 100 | 100 | 100 |  
+----------------|---------|----------|---------|---------|-------------------
+
+# Inclusions and Exclusions in two places
+
+vite.config.ts — tells Vitest what to measure when generating the coverage report (which files to include/exclude, output format, output directory)
+sonar-project.properties — tells SonarQube what to analyze and where to find reports
